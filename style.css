@@ -100,7 +100,7 @@ header {
   display: block;
   /* 화면 너비에 따라 자동으로 줄어드는 텍스트 크기 */
   font-size: clamp(2rem, 8vw, 4rem);
-  line-height: 1.2;
+  line-height: 1;
   white-space: nowrap;
 }
 .typing-line span {
