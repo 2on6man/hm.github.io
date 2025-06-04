@@ -11,26 +11,17 @@ async function typeLine(lineElem, delayBefore) {
     lineElem.append(span);
     setTimeout(() => {
       span.style.transition = 'opacity 0.3s ease';
-      span.style.opacity = '1';
+      span.style.opacity = '1'; // 타이핑되며 완전 불투명(100%)
     }, i * 100);
   }
   await new Promise(r => setTimeout(r, (chars.length * 100) + 200));
 }
 async function animateAll() {
-  // 1. "압도적인 기술력, 검증된 경험"
+  // 첫 번째 줄: EXPAND
   await typeLine(lines[0], 500);
-  // 2. "나라스페이스는 "
+  // 두 번째 줄: OUR
   await typeLine(lines[1], 500);
-  // Show scroll container (fade-in with first item)
-  const scroller = document.getElementById('master-container-scroller');
-  scroller.style.display = 'block';
-  // Wait for full scroll animation (6.2s)
-  await new Promise(r => setTimeout(r, 6200));
-  // 추가 딜레이(2초) 후 3번째 줄 등장
-  await new Promise(r => setTimeout(r, 2000));
-  // 3. "가치사슬의 전 과정을 직접 수행합니다."
+  // 세 번째 줄: UNIVERSE!
   await typeLine(lines[2], 500);
-  // 4. "글로벌 리더, 나라스페이스와 함께하세요."
-  await typeLine(lines[3], 500);
 }
 animateAll();
