@@ -26,6 +26,8 @@ async function animateAll() {
   scroller.style.display = 'block';
   // Wait for full scroll animation (6.2s)
   await new Promise(r => setTimeout(r, 6200));
+  // 추가 딜레이(2초) 후 3번째 줄 등장
+  await new Promise(r => setTimeout(r, 2000));
   // 3. "가치사슬의 전 과정을 직접 수행합니다."
   await typeLine(lines[2], 500);
   // 4. "글로벌 리더, 나라스페이스와 함께하세요."
