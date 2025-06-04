@@ -1,10 +1,18 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { width: 100%; height: 100%; font-family: 'Pretendard-Bold', sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Pretendard-Bold', sans-serif;
+}
 
 header {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   display: grid;
   grid-template-columns: auto 563px auto;
@@ -17,27 +25,47 @@ header {
 .logo {
   height: 30px;
   justify-self: start;
-  /* 로고를 흰색으로 표시 */
   filter: brightness(0) invert(1);
 }
-.gnb-menu { display: flex; justify-content: space-between; align-items: center; width: 563px; gap: 36px; justify-self: center; }
-.gnb-icon { object-fit: contain; }
-.language { display: flex; align-items: center; justify-self: end; cursor: pointer; }
-.language img { width: 24px; height: 24px; }
-.mobile-icons { display: none; align-items: center; justify-self: end; }
-.mobile-icons .hamburger { background: transparent; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.mobile-icons .hamburger-icon { width: 26px; height: 26px; }
-
-@media (max-width:768px) {
-  header { grid-template-columns: auto 1fr auto; padding: 16px 32px; }
-  .logo { width: 170px; height: 30px; }
-  .gnb-menu { display: none; }
-  .mobile-icons { display: flex; gap: 10px; }
-  /* 모바일에서 폰트 크기 자동 조정: 뷰포트 너비의 8% */
-  .typing-container { font-size: 8vw; line-height: 1.2; }
+.gnb-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 563px;
+  gap: 36px;
+  justify-self: center;
 }
-@media (min-width:769px) and (max-width:1439px) { header { margin: 0; padding: 16px 32px; } }
-@media (min-width:1440px) { header { max-width: 2560px; margin: 0 auto; } }
+.gnb-icon {
+  object-fit: contain;
+}
+.language {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  cursor: pointer;
+}
+.language img {
+  width: 24px;
+  height: 24px;
+}
+.mobile-icons {
+  display: none;
+  align-items: center;
+  justify-self: end;
+}
+.mobile-icons .hamburger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-icons .hamburger-icon {
+  width: 26px;
+  height: 26px;
+}
 
 .hero {
   width: 100%;
@@ -51,6 +79,7 @@ header {
   object-fit: cover;
 }
 
+/* 텍스트 컨테이너 초기 설정 */
 .typing-container {
   position: absolute;
   bottom: 34px;
@@ -59,26 +88,62 @@ header {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-
   color: white;
-  font-size: 38px;
   font-weight: 700;
-  line-height: 52px;
   letter-spacing: -2%;
-  width: fit-content;
-  height: fit-content;
-  pointer-events: none;
-  transition: transform 0.4s ease;
-}
-.typing-line {
-  position: relative;
-  height: 52px;
   overflow: hidden;
-  display: none;
+  white-space: nowrap;
+}
+
+/* 각 줄의 텍스트 개별 문자 설정 */
+.typing-line {
+  display: block;
+  /* 화면 너비에 따라 자동으로 줄어드는 텍스트 크기 */
+  font-size: clamp(2rem, 8vw, 4rem);
+  line-height: 1.2;
+  white-space: nowrap;
 }
 .typing-line span {
-  opacity: 0.5; /* 기본 투명도 50% */
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
   display: inline-block;
+}
+
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: auto 1fr auto;
+    padding: 16px 32px;
+  }
+  .logo {
+    width: 170px;
+    height: 30px;
+  }
+  .gnb-menu {
+    display: none;
+  }
+  .mobile-icons {
+    display: flex;
+    gap: 10px;
+  }
+  /* 모바일에서 위치 보정 */
+  .typing-container {
+    bottom: 24px;
+    left: 24px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1439px) {
+  header {
+    margin: 0;
+    padding: 16px 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  header {
+    max-width: 2560px;
+    margin: 0 auto;
+  }
 }
 
 .below {
