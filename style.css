@@ -33,7 +33,8 @@ header {
   .logo { width: 170px; height: 30px; }
   .gnb-menu { display: none; }
   .mobile-icons { display: flex; gap: 10px; }
-  .typing-container { font-size: 30px; line-height: 44px; }
+  /* 모바일에서 폰트 크기 자동 조정: 뷰포트 너비의 8% */
+  .typing-container { font-size: 8vw; line-height: 1.2; }
 }
 @media (min-width:769px) and (max-width:1439px) { header { margin: 0; padding: 16px 32px; } }
 @media (min-width:1440px) { header { max-width: 2560px; margin: 0 auto; } }
@@ -76,57 +77,8 @@ header {
   display: none;
 }
 .typing-line span {
-  opacity: 0;
+  opacity: 0.5; /* 기본 투명도 50% */
   display: inline-block;
-}
-
-.typing-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#master-container-scroller {
-  height: 52px;
-  overflow: hidden;
-  display: none;
-}
-#master-container-scroller .master-container-scroller_item {
-  height: 52px;
-  display: block;
-  line-height: 52px;
-  white-space: nowrap;
-  opacity: 0;
-  animation: scroll 6.2s forwards;
-  animation-delay: 2s;
-  animation-timing-function: ease;
-}
-@keyframes scroll {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  51% {
-    transform: translateY(-52px);
-  }
-  95% {
-    transform: translateY(-52px);
-    opacity: 1;
-  }
-  96% {
-    transform: translateY(-104px);
-  }
-  100% {
-    transform: translateY(-104px);
-    opacity: 1;
-  }
 }
 
 .below {
